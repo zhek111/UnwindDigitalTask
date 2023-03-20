@@ -1,7 +1,8 @@
-from __future__ import absolute_import, unicode_literals
 from celery import shared_task
-from .utils import update_usd_exchange_rate, check_orders_due, \
-    send_telegram_notification
+
+from sheet.utils.exchange_rate import update_usd_exchange_rate
+from sheet.utils.orders import check_orders_due
+from sheet.utils.telegram import send_telegram_notification
 
 
 @shared_task
