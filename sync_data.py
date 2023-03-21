@@ -1,6 +1,7 @@
 import os
 import django
 
+from sheet.utils.logging import setup_logger
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "UnwindDigitalTask.settings")
 django.setup()
@@ -17,7 +18,7 @@ SHEET_ID = '1aGov-wMHdqfshgmO6qogOrw9uwqDuvM2cpOkcl33Y3M'
 SHEET_RANGE = 'Лист1!A2:E'
 SLEEP_INTERVAL = 60  # время между проверками обновления таблицы, в секундах
 
-
+logger = setup_logger(__name__)
 
 def update_orders(data):
     existing_orders = {
