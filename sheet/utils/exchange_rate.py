@@ -1,4 +1,5 @@
 from xml.etree import ElementTree
+
 import requests
 
 USD_EXCHANGE_RATE = None

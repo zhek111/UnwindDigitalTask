@@ -1,24 +1,28 @@
 import os
+
 import django
 
-from sheet.utils.logging import setup_logger
+
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "UnwindDigitalTask.settings")
 django.setup()
 
+from sheet.utils import setup_logger
 
 import time
 from datetime import datetime
+
 from googleapiclient.errors import HttpError
+
 from sheet.models import Order
-from sheet.utils.google_sheet import get_google_sheet
-from sheet.utils.exchange_rate import get_usd_exchange_rate
+from sheet.utils import get_google_sheet, get_usd_exchange_rate
 
 SHEET_ID = '1aGov-wMHdqfshgmO6qogOrw9uwqDuvM2cpOkcl33Y3M'
 SHEET_RANGE = 'Лист1!A2:E'
 SLEEP_INTERVAL = 60  # время между проверками обновления таблицы, в секундах
 
 logger = setup_logger(__name__)
+
 
 def update_orders(data):
     existing_orders = {
@@ -48,8 +52,6 @@ def update_orders(data):
 
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
-                          "UnwindDigitalTask.settings")
 
     while True:
         try:

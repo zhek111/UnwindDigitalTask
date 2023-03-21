@@ -1,6 +1,7 @@
 import requests
-from UnwindDigitalTask.settings import TELEGRAM_TOKEN, TELEGRAM_CHAT_ID
+
 from sheet.utils.logging import setup_logger
+from UnwindDigitalTask.settings import TELEGRAM_CHAT_ID, TELEGRAM_TOKEN
 
 logger = setup_logger(__name__)
 

@@ -1,8 +1,8 @@
 from celery import shared_task
 
-from sheet.utils.exchange_rate import update_usd_exchange_rate
-from sheet.utils.orders import check_orders_due
-from sheet.utils.telegram import send_telegram_notification
+from sheet.utils import update_usd_exchange_rate
+from sheet.utils import check_orders_due
+from sheet.utils import send_telegram_notification
 
 
 @shared_task
